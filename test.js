@@ -1,12 +1,14 @@
-(function 数组方法() {
-  let a = [11, 22, 33],
-    b = [44, 55, 66],
-    c = [a, ...b];
-  {
-    [...a].pop(); //?
-    [...a].push(1); //?
-    a.push(1); //?
-    a;
-    console.log([].push(1, 2, 3, 3)); //?
-  }
-})();
+{
+  let s = "Simon";
+  // s.reversed(); //?
+  // TypeError on line 1: s.reversed is not a function
+  String.prototype.reversed = function () {
+    var r = "";
+    for (var i = this.length - 1; i >= 0; i--) {
+      r += this[i];
+    }
+    return r;
+  };
+  console.log(s.reversed());
+}
+console.log("123".reversed());
