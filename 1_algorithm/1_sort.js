@@ -1,4 +1,3 @@
-export default sort;
 //快排,冒泡,选择排序
 //https://leetcode-cn.com/circle/discuss/SVKmhR/
 /**

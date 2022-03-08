@@ -1,4 +1,3 @@
-// export default relearn;
 // Number（数字）
 // String（字符串）
 // Boolean（布尔）
