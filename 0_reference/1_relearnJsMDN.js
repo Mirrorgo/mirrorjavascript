@@ -15,17 +15,22 @@
 JavaScript 采用“遵循 IEEE 754 标准的双精度 64 位格式”
 （"double-precision 64-bit format IEEE 754 values"）表示数字 */
 {
-  console.log(0.1 + 0.2);
-  // why? =>浮点数精度问题 https://zhuanlan.zhihu.com/p/95318421
-  // 解决方案:
-  //1.Number.EPSILON
-  //Number.EPSILON 属性表示 1 与Number可表示的大于 1 的最小的浮点数之间的差值
-  const equals1 = (a, b) => {
-    return Math.abs(a - b) < Number.EPSILON;
-  };
-  console.log(equals1(0.1 + 0.2, 0.3));
-  //2.计算数字放大再缩小
-  console.log((0.1 * 1000 + 0.2 * 1000) / 1000 === 0.3);
+  (function 浮点数() {
+    console.log(0.1 + 0.2);
+    // why? =>浮点数精度问题 https://zhuanlan.zhihu.com/p/95318421
+    // 解决方案:
+    //1.Number.EPSILON
+    //Number.EPSILON 属性表示 1 与Number可表示的大于 1 的最小的浮点数之间的差值
+    const equals1 = (a, b) => {
+      return Math.abs(a - b) < Number.EPSILON;
+    };
+    console.log(equals1(0.1 + 0.2, 0.3));
+    //2.计算数字放大再缩小
+    console.log((0.1 * 1000 + 0.2 * 1000) / 1000 === 0.3);
+    //3.toFixed然后+转数字
+    let sum = 0.1 + 0.2;
+    console.log(+sum.toFixed(2)); // 0.3
+  })();
 }
 {
   console.log(parseInt("123", 10)); // 123
