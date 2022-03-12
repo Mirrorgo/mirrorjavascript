@@ -8,6 +8,7 @@
     }
     return fb(n - 2) + fb(n - 1);
   };
+  //❌太浪费啦
 }
 {
   const arr = [];
