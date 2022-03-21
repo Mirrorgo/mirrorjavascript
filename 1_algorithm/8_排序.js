@@ -74,5 +74,20 @@ let input = [99, 0, 2, 4, 1, 6, 8, 13, 66, 2];
     else return res.concat(left.slice(p1));
   }
 })(input);
+{
+  function quickSort(nums) {
+    if (nums.length <= 1) return nums;
+    const left = [],
+      right = [];
+    let pivot = Math.floor(nums.length / 2);
+    for (let i = 0; i < nums.length; i++) {
+      if (i === pivot) continue;
+      if (nums[i] < nums[pivot]) left.push(nums[i]);
+      else right.push(nums[i]);
+    }
+    return quickSort(left).concat(nums[pivot], quickSort(right));
+  }
+  console.log(quickSort(input), "quick");
+}
 
 console.log(input, "原数组");

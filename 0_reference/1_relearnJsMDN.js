@@ -179,12 +179,20 @@ JavaScript 采用“遵循 IEEE 754 标准的双精度 64 位格式”
     let a = [11, 22, 33, 44, 55],
       b = [91, 95, 96],
       c = [a, ...b];
-    //不改变原数组
+    //STAR:不改变原数组
     {
       a.concat(b, c); //?
+      /* concat会打平一层,但也仅限于一层 */
+      let test = [1, 2];
+      console.log(test.concat([3, [4, 5], 6], 4)); //
+      console.log(test.concat([3, 4, 5, 6], 4)); //
+      //
       a.join("_"); //?
-      //返回子数组,以a[start]开头,a[end]结尾
+      //返回子数组,以a[start]开头,a[end-1]结尾
       a.slice(2, 4); //?
+      a.map((cur) => cur * 2); //?
+      console.log(a.reduce((acc, cur, idx) => acc + cur, 0));
+      a.filter((cur, idx, arr) => cur > 30); //?
       a;
     }
     //改变原数组
@@ -269,4 +277,11 @@ JavaScript 采用“遵循 IEEE 754 标准的双精度 64 位格式”
     //不要随意扩展原生对象的原型,除非你希望支持JavaScript引擎的新特性
     //[四个拓展原型链的方法](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Inheritance_and_the_prototype_chain#%E6%80%BB%E7%BB%93%EF%BC%9A4_%E4%B8%AA%E7%94%A8%E4%BA%8E%E6%8B%93%E5%B1%95%E5%8E%9F%E5%9E%8B%E9%93%BE%E7%9A%84%E6%96%B9%E6%B3%95)
   }
+}
+{
+  (function JSON_JS() {
+    let jsonStr = '{"userName": "tiu","userAge": 26,"isMale": true}';
+    let json = JSON.parse(jsonStr); //?
+    let str = JSON.stringify(json); //?
+  })();
 }

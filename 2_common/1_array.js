@@ -11,3 +11,12 @@
   };
   console.log(findDuplicate(input));
 }
+{
+  (function 数组去重() {
+    const input = [1, 2, 4, 4, 3, 3, 1, 5, 3];
+    console.log(unique(input), "unique");
+    function unique(arr) {
+      return Array.from(new Set(arr));
+    }
+  })();
+}
