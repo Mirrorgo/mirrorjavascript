@@ -1,9 +1,21 @@
+(function Array对象() {
+  //TODO:待验证
+  const obj = {
+    0: "123",
+    1: "456",
+    2: "c",
+    length: 4,
+  };
+  Array.isArray(obj);
+  Array.from(new Set([1, 2, 3])); //?
+  Array.of(1, 2, 3); //?
+})();
 (function array() {
   let a = [11, 22, 33, 44, 55],
     b = [91, 95, 96],
     c = [a, ...b];
-  //STAR:不改变原数组
   {
+    //STAR:不改变原数组
     a.concat(b, c); //?
     /* concat会打平一层,但也仅限于一层 */
     let test = [1, 2];
@@ -15,11 +27,12 @@
     a.slice(2, 4); //?
     a.map((cur) => cur * 2); //?
     console.log(a.reduce((acc, cur, idx) => acc + cur, 0));
+    //TODO a.reduceRight()
     a.filter((cur, idx, arr) => cur > 30); //?
     a;
   }
-  //改变原数组
   {
+    //STAR:改变原数组
     [...a].reverse(); //?
     //删除并返回数组中的最后一个元素
     [...a].pop(); //?
@@ -48,14 +61,26 @@
     a.findIndex((i) => i > 30); //?
     c.flat(); //?
     // a.flatMap()
-    a.includes(11); //?
+    a.includes(11, 0); //?
     a.join(""); //?
     a.lastIndexOf(44); //?
     a.some((i) => i > 20); //?
+    //TODO a.copyWithin()
+    //TODO a.fill()
+    //entries(), keys() & values()
+    //flat,flatMap
     a;
     c;
+    {
+      //TODO:待验证
+      const values = [1, 3, 4, 6, 7, 4, 3, 1];
+      console.log(values.indexOf(4)); // 2
+      console.log(values.lastIndexOf(4)); // 5
+      console.log(values.lastIndexOf(4, 4)); // 2
+      console.log(values.lastIndexOf(4, 5)); // 5
+    }
   }
-})();
+});
 (function string() {
   let s = " Hello world. I need you ";
   s.split(" "); //?
@@ -81,5 +106,5 @@
   s.substring(3, 1); //?
   //---------
   s.trim(); //?
-})();
+});
 (function 综合运用() {})();
