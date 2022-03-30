@@ -88,7 +88,6 @@
   s.includes("a"); //?
   s.indexOf("o"); //?
   s.lastIndexOf("o"); //?
-  s.length; //?
   s.match(/\w*\./); //?
   s.matchAll(/w*/g); //?
   s.repeat(2); //?
@@ -106,5 +105,5 @@
   s.substring(3, 1); //?
   //---------
   s.trim(); //?
-});
+})();
 (function 综合运用() {})();

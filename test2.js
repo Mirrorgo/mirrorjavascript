@@ -1,8 +1,6 @@
 class User {
   constructor(name) {
-    // 调用 setter
-    // this.任意内容 = name;
-    this.name = name; //? 问segfault
+    this.name = name;
   }
   get name() {
     return this._name;
