@@ -90,3 +90,25 @@ const foo = function (...args) {
   myInstanceOf([], Object); //?
   myInstanceOf([], Array); //?
 });
+
+{
+  function Foo() {
+    getName = function () {
+      console.log("1");
+    };
+    return this;
+  }
+  Foo.getName = function () {
+    console.log("2");
+  };
+  var getName = function () {
+    console.log("3");
+  };
+  function getName() {
+    console.log("4");
+  }
+  Foo.getName();
+  getName();
+  Foo().getName();
+  getName();
+}

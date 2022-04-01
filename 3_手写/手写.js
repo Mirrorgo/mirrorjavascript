@@ -15,6 +15,21 @@
     };
     console.log(getGroup(url.match(reg)));
   })("https://www.juejin.cn?a=1&b=2"); //{a:1,b:2}
+
+  // 请实现 getQueries 函数，获取url上的参数值。（至少两种方法）
+  // 满足用例：
+  //  输入：getQueries("https://a.com/?a=1&b=你好","a");
+  //  输出：1
+  function getQueries(url = "", key) {
+    let params = url.match(/\?(.*)/)[1].split("&");
+    let objOfParams = {};
+    params.forEach((cur) => {
+      let key_value = cur.split("=");
+      objOfParams[key_value[0]] = key_value[1];
+    });
+    return objOfParams[key];
+  }
+  console.log(getQueries("https://a.com/?a=1&b=你好", "a"));
 });
 (function createCallFunction() {
   // 原理:把 foo 添加到 obj 里，执行 foo 拿到返回值，
