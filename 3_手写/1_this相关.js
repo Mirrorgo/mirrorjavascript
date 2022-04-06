@@ -90,7 +90,6 @@ const foo = function (...args) {
   myInstanceOf([], Object); //?
   myInstanceOf([], Array); //?
 });
-
 {
   function Foo() {
     getName = function () {
