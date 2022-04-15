@@ -10,7 +10,7 @@ const foo = function (...args) {
     if (typeof this !== "function") {
       throw new TypeError("not a function");
     }
-    thisArg = thisArg || globalThis;
+    thisArg = thisArg || window;
     let fn = Symbol(); //防止重名
     thisArg[fn] = this; //隐式绑定, 对于👇的例子, 等价于obj.fn = foo
     let res = thisArg[fn](...argArray);
@@ -31,7 +31,7 @@ const foo = function (...args) {
     if (!Array.isArray(argArray)) {
       throw new Error("argArray is not a array");
     }
-    thisArg = thisArg || globalThis;
+    thisArg = thisArg || window;
     let fn = Symbol();
     thisArg[fn] = this;
     let res = thisArg.fn(...argArray);
@@ -50,7 +50,7 @@ const foo = function (...args) {
         throw new TypeError("not a function");
       }
       let that = this;
-      thisArg = thisArg || globalThis;
+      thisArg = thisArg || window;
       return function () {
         return that.call(thisArg, ...argArray, ...arguments);
       };
