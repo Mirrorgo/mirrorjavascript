@@ -4,6 +4,7 @@
     return [
       ...new Set(
         input.filter((cur, index, self) => {
+          //数组找重
           return self.indexOf(cur) !== index;
         })
       ),

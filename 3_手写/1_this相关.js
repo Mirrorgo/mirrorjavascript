@@ -22,7 +22,7 @@ const foo = function (...args) {
   foo.myCall(undefined, "111", "222");
   foo.myCall(obj, "111", "222");
   delete Function.prototype.myCall; //FIXME应该这样吗?
-});
+})();
 (function 实现apply() {
   Function.prototype.myApply = function (thisArg, argArray) {
     if (typeof this !== "function") {
@@ -91,23 +91,23 @@ const foo = function (...args) {
   myInstanceOf([], Array); //?
 });
 {
-  function Foo() {
-    getName = function () {
-      console.log("1");
-    };
-    return this;
-  }
-  Foo.getName = function () {
-    console.log("2");
-  };
-  var getName = function () {
-    console.log("3");
-  };
-  function getName() {
-    console.log("4");
-  }
-  Foo.getName();
-  getName();
-  Foo().getName();
-  getName();
+  // function Foo() {
+  //   getName = function () {
+  //     console.log("1");
+  //   };
+  //   return this;
+  // }
+  // Foo.getName = function () {
+  //   console.log("2");
+  // };
+  // var getName = function () {
+  //   console.log("3");
+  // };
+  // function getName() {
+  //   console.log("4");
+  // }
+  // Foo.getName();
+  // getName();
+  // Foo().getName();
+  // getName();
 }
