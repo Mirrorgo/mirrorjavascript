@@ -147,16 +147,6 @@ JavaScript 采用“遵循 IEEE 754 标准的双精度 64 位格式”
   })();
 }
 {
-  //数组
-  (function 创建数组的方式() {
-    var a = new Array();
-    a[0] = "dog";
-    a[1] = "cat";
-    a[2] = "hen";
-    a.length; //?
-    var b = ["dog", "cat", "hen"];
-    b.length; //?
-  })();
   (function 遍历() {
     //for of
     //for in

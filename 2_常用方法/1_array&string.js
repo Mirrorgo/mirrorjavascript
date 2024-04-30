@@ -95,6 +95,7 @@
   s.replace(/\w*\./, "wow"); //?
   s.search("need"); //?
   //---------
+  s.slice(3); //?
   s.slice(3, 5); //?
   s.substring(3, 5); //?
   //substring和slice有什么区别

@@ -3,6 +3,8 @@
   Array(3)
     .fill(0)
     .map(() => Array(5).fill(0)); //?
+  Array.from(Array(3), () => []); //?
+  Array.from({ length: 3 }, () => []); //?
 }
 
 //找到总和,最小值,最大值
